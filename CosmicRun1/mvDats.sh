@@ -6,9 +6,11 @@ mainDir=/home/greg/DoppedData/CosmicRun1
 for d in */; do
     
     cd $mainDir/$d
-    rm *.C
-#    mkdir Dats
- #   mv *.dat *.csv Dats/
+    cp *copy.root /home/greg/DoppedData/DataRun1/
+    # rm *.C
+#   mkdir Dats
+ #  mv *.dat Dats/
+#   rm *.root
 #    cd $MainDir
 
 done

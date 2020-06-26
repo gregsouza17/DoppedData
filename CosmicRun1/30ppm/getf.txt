@@ -1,0 +1,8 @@
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch0-2019-12-05_18-49-35_copy.root
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch10-2019-12-05_18-49-35_copy.root
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch11-2019-12-05_18-49-35_copy.root
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch1-2019-12-05_18-49-35_copy.root
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch2-2019-12-05_18-49-35_copy.root
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch3-2019-12-05_18-49-35_copy.root
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch8-2019-12-05_18-49-35_copy.root
+Cosmic_Sync_30ppm_2PaddlesInternalPMT_Ch9-2019-12-05_18-49-35_copy.root

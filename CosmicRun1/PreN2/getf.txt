@@ -1,0 +1,8 @@
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch0-2019-11-29_18-40-55_copy.root
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch10-2019-11-29_18-40-55_copy.root
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch11-2019-11-29_18-40-55_copy.root
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch1-2019-11-29_18-40-55_copy.root
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch2-2019-11-29_18-40-55_copy.root
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch3-2019-11-29_18-40-55_copy.root
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch8-2019-11-29_18-40-55_copy.root
+29Nov2019_Vbias=47_CosmicFourCoincidence_Ch9-2019-11-29_18-40-55_copy.root

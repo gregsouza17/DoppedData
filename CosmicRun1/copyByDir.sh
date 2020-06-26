@@ -9,13 +9,8 @@ for d in */; do
    # rm *.root
     cp $mainFile .
     
-   # root -q -b copyToRoot.C
-#    pwd
+    root -q -b copyToRoot.C
     
-    # mkdir Dats
-    # mv *.dat *.csv Dats/
-#    cd $MainDir
-
 done
 	 
 	 

@@ -1,0 +1,49 @@
+#include "/home/greg/myARPC/Codes/Signals.C"
+#include "/home/greg/myARPC/Codes/RunGlobals.h"
+#include "/home/greg/myARPC/Codes/LXe/LXeAnalysis.h"
+
+
+
+void makePhotonHist(std::string sampleFiles, Int_t chIndex){
+
+  std::string chName="Ch"+std::to_string(LXeutils::Channels[chIndex]);
+
+  TFile *inFile = new TFile(sampleFiles.c_str(), "READ");
+
+  std::string Tname="t"+chName;
+  TTree *t1 = (TTree*) inFile->Get(Tname.c_str());
+
+  Int_t nevents = t1->GetEntries()/TestParam::linhas_evento;
+
+  std::string histName=chName+"_PhHist";
+  TH1D* h1 = new TH1D(histName.c_str(), histName.c_str(),
+                      100, 0, 100);
+
+  //Signal s(t1, 201);
+  // s.Draw();
+
+  for(int ev=0; ev<nevents; ev++){
+    Signal s(t1, ev);
+    Double_t charge=s.Integrate();
+    charge/=CosmicRun1::charges[chIndex];
+    h1->Fill(charge);
+    std::cout << charge << "\n";
+  }
+
+     h1->Draw();
+
+
+}
+
+
+void phHist(){
+
+  setLXe();
+
+  std::string inName="PreN2_samples.root";
+  std::string chName="Ch0";
+
+  makePhotonHist(inName, 4);
+
+
+}
