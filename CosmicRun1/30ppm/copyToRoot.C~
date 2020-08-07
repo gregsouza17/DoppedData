@@ -11,7 +11,7 @@ void copyToRoot(){
   std::string ext=".dat";
   std::vector<std::string> Files=GetFiles(ext);
 
-  Reader R(20000, 400, 5);
+  Reader R(20000, 400, 20,24);
   
   for(int i=0; i<Files.size(); i++){
     Files[i] = Files[i].substr(0, Files[i].find(ext));

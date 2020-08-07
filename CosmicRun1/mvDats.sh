@@ -6,12 +6,17 @@ mainDir=/home/greg/DoppedData/CosmicRun1
 for d in */; do
     
     cd $mainDir/$d
-    cp *copy.root /home/greg/DoppedData/DataRun1/
+
+    #cp *copy.root /home/greg/DoppedData/Run1Cal
+
+    # rm -rf *.root
+    # mv ./Dats/* .
+
     # rm *.C
 #   mkdir Dats
- #  mv *.dat Dats/
+    mv *lightYield.root $mainDir/
 #   rm *.root
-#    cd $MainDir
+    cd $MainDir
 
 done
 	 

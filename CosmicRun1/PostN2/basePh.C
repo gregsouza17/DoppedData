@@ -2,9 +2,7 @@
 #include "/home/greg/myARPC/Codes/utilities.h"
 
 
-
-
-void basePh(Int_t runIndex=7){
+void basePh(Int_t runIndex=7, Int_t rebin=1){
 
   std::string runName=CosmicRun1::names[runIndex];
 
@@ -22,8 +20,8 @@ void basePh(Int_t runIndex=7){
   std::string GhistName=runName+"phHist_glass";
   std::string GhistTile = "Light Seen in " + runName;
 
-  int nbins(1800);
-  int range=nbins;
+  int range=1800;
+  int nbins=range;
 
   TH1D *hg = new TH1D(GhistName.c_str(), GhistTile.c_str(),
                       nbins,0,range);
@@ -54,9 +52,9 @@ void basePh(Int_t runIndex=7){
 
 
   std::cout << "\t \t Glass \t No Glass \n"
-            << "Mean \t \t" << hg->GetMean() << "\t" << hn->GetMean() <<"\n"
-            << "Light/Events \t" << gint << "\t" << nint << "\n"
-            << "Median \t \t" << quants[0] << "\t" << quantsN[0]  << "\n";
+            << "Mean \t" << hg->GetMean() << "\t" << hn->GetMean() <<"\n"
+            << "Light/Events \t " << gint << "\t" << nint << "\n"
+            << "Median \t " << quants[0] << "\t" << quantsN[0]  << "\n";
 
   for(int i=1; i<nquantiles; i++){
     std::cout << "N# < " << probs[i] << "\t" << quants[i] << "\t"
@@ -65,17 +63,27 @@ void basePh(Int_t runIndex=7){
 
   //pad->cd();
 
+  fout->WriteObject(hg, GhistName.c_str(),"TObject::kOverwrite");
+  fout->WriteObject(hn, NhistName.c_str(),"TObject::kOverwrite");
+
   hg->Scale(1/hg->Integral());
   hn->Scale(1/hn->Integral());
 
 
-  hg->Draw("H");
+  hg->Rebin(rebin);
+  hn->Rebin(rebin);
+
+  hg->Draw("HIST");
   hg->SetStats(0);
+
   hg->GetXaxis()->SetRangeUser(0,(int) quantsN[1]*2);
+  hg->GetXaxis()->SetTitle("N# Photons");
+  hg->GetYaxis()->SetTitle("Frequency");
+
   hg->SetLineWidth(2);
   hg->SetLineColor(kRed);
 
-  hn->Draw("same H");
+  hn->Draw("same HIST");
   hn->SetStats(0);
   hn->SetLineWidth(2);
 
@@ -85,8 +93,6 @@ void basePh(Int_t runIndex=7){
   legend->AddEntry(GhistName.c_str(), "With Glass", "l");
   legend->Draw("same");
 
-  fout->WriteObject(hg, GhistName.c_str(),"TObject::kOverwrite");
-  fout->WriteObject(hn, NhistName.c_str(),"TObject::kOverwrite");
-  fout->WriteObject(c1, "YieldComapre", "TObject::kOverwrite");
+  fout->WriteObject(c1, "YieldCompare", "TObject::kOverwrite");
 
 }

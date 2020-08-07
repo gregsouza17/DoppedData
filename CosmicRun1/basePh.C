@@ -18,7 +18,7 @@ void basePh(Int_t runIndex=7, Int_t rebin=1){
 
   //Glass Hist
   std::string GhistName=runName+"phHist_glass";
-  std::string GhistTile = "Light Seen in " + runName;
+  std::string GhistTile = "Light Seen in " + runName + "w/ Glass";
 
   int range=1800;
   int nbins=range;

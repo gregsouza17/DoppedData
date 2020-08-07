@@ -48,20 +48,19 @@ void getTailPeaks(Int_t ch){
 
   //Getting Files and creating searcher
   std::vector<std::string> inFiles=GetFiles(ForSearch_str);
-  SpheSearcher sear;
-  sear.searchSigma=5;
-  sear.hPercent=0.2;
 
-  //Loop thorugh events in a single file (Later add multiple files)
+  for(auto file:inFiles){
+    TFile *fin = new TFile(file.c_str(), "READ");
+    TTree *t1 = (TTree*) fin->Get("t1");
+    Int_t nentries = t1->GetEntries()/TestParam::linhas_evento;
 
-  TFile *fin = new TFile(inFiles[1].c_str(), "READ");
-  fin->Print();
-  TTree *tin = (TTree*) fin->Get("t1");
+    for(int ev=0; ev<nentries; ev++){
+      Signal s(t1, ev);
+      hcharge->Fill(s.Integrate(1000));
+    }
+  }
 
-  Signal s(tin, 202);
-  s.Draw();
-
-  //Add sample searcher graphs
+  hcharge->Draw();
 
 
 }
@@ -72,5 +71,4 @@ void calFunctions(){
 
   setLXe();
   getTailPeaks(0);
-
 }
