@@ -82,7 +82,7 @@ void makeAtree(Int_t ch, Double_t charge, Double_t var){
           for(int j=pStart; j<spheSize+pStart; j++){
 
             time=(j-pStart)/0.15;
-            if(j<=pEnd)
+            if(j<pEnd)
               peak=sig[j];
 
             else

@@ -1,0 +1,8 @@
+#include "/home/greg/myARPC/Codes/Signals.C"
+#include "/home/greg/myARPC/Codes/finder.C"
+#include "/home/greg/myARPC/Codes/PeakSearcher.h"
+#include "/home/greg/myARPC/Codes/CalibrationCode.C"
+
+
+#include "/home/greg/myARPC/Codes/utilities.h"
+#include "/home/greg/myARPC/Codes/LXe/LXeAnalysis.h"

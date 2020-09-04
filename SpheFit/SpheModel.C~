@@ -1,0 +1,98 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "/home/greg/myARPC/Codes/utilities.h"
+#include "/home/greg/myARPC/Codes/LXe/LXeAnalysis.h"
+
+class Sphe3Exps{
+
+public:
+  Int_t Nparameters;
+  std::vector<Double_t> parameters;
+
+  Sphe3Exps(): Nparameters(6) { parameters.resize(Nparameters); }
+
+  Sphe3Exps(std::vector<Double_t> pars):Sphe3Exps(){
+
+    if(pars.size()==Nparameters)
+      parameters=pars;
+    else
+      std::cout<<"Inconsistent Number of Parameters \n \n";
+  }
+
+  Int_t GetNparameters()
+  { return Nparameters; }
+
+  std::vector<Double_t> GetParameters()
+  { return parameters; }
+
+  void SetParameters(Double_t *p){
+    for(int i=0; i<parameters.size(); i++)
+      parameters[i]=p[i];
+  }
+
+  Double_t Evaluate(Double_t x){
+
+    double_t f=0;
+
+    f+=parameters[0]*TMath::Exp(-parameters[1]*x);
+    f+=parameters[2]*TMath::Exp(-parameters[3]*x);
+    f-=parameters[4]*TMath::Exp(-parameters[5]*x);
+
+    return f;
+  }
+
+  Double_t EvaluateForFunc(Double_t *x, Double_t *p){
+    Double_t xx=*x;
+    SetParameters(p);
+
+    return Evaluate(xx);
+  }
+
+  std::vector<Double_t> EvaluateRange(Double_t start,
+                                              Double_t end,
+                                      Double_t step=1){
+    std::vector<Double_t> Yvec;
+
+    for(int i=0; i < (int) (end-start)/step; i++){
+      Double_t x = start+(i*step);
+      Yvec.push_back(Evaluate(x));
+    }
+
+    return Yvec;
+  }
+
+  std::vector<Double_t> EvaluateVector(std::vector<Double_t> xVec){
+    std::vector<Double_t> Yvec;
+
+    for(Double_t x:xVec)
+      Yvec.push_back(Evaluate(x));
+
+    return Yvec;
+
+  }
+
+
+};
+
+void SpheModel(){
+
+  //std::vector<Double_t>
+  Double_t pars[]={1.0, 0.5, 1.5, 0.03, 0.7, 0.09};
+  Double_t x[]={1.7};
+
+  Sphe3Exps sphe;
+  sphe.SetParameters(pars);
+  sphe.xStart=50;
+
+  std::vector<Double_t> Xvec;
+  for(int i=0; i<2000; i++)
+    Xvec.push_back(i/0.15);
+
+  std::vector<Double_t> Yvec=sphe.EvaluateVector(Xvec);
+
+  TGraph *g1 = new TGraph(Xvec.size(), &Xvec[0], &Yvec[0]);
+  g1->Draw();
+
+}

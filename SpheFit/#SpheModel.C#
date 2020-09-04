@@ -1,0 +1,118 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "/home/greg/myARPC/Codes/utilities.h"
+#include "/home/greg/myARPC/Codes/LXe/LXeAnalysis.h"
+
+class Sphe3Exps{
+
+public:
+  Int_t Nparameters;
+  std::vector<Double_t> parameters;
+
+  Sphe3Exps(): Nparameters(6) { parameters.resize(Nparameters); }
+
+  Sphe3Exps(std::vector<Double_t> pars):Sphe3Exps(){
+
+    if(pars.size()==Nparameters)
+      parameters=pars;
+    else
+      std::cout<<"Inconsistent Number of Parameters \n \n";
+  }
+
+  Int_t GetNparameters()
+  { return Nparameters; }
+
+  std::vector<Double_t> GetParameters()
+  { return parameters; }
+
+  void SetParameters(Double_t *p){
+    for(int i=0; i<parameters.size(); i++)
+      parameters[i]=p[i];
+  }
+
+  Double_t Evaluate(Double_t x){
+
+    double_t f=0;
+
+    f+=parameters[0]*TMath::Exp(-parameters[1]*x);
+    f+=parameters[2]*TMath::Exp(-parameters[3]*x);
+    f-=parameters[4]*TMath::Exp(-parameters[5]*x);
+
+    return f;
+  }
+
+  Double_t EvaluateForFunc(Double_t *x, Double_t *p){
+    Double_t xx=*x;
+    SetParameters(p);
+
+    return Evaluate(xx);
+  }
+
+  std::vector<Double_t> EvaluateRange(Double_t start,
+                                              Double_t end,
+                                      Double_t step=1){
+    std::vector<Double_t> Yvec;
+
+    for(int i=0; i < (int) (end-start)/step; i++){
+      Double_t x = start+(i*step);
+      Yvec.push_back(Evaluate(x));
+    }
+
+    return Yvec;
+  }
+
+  std::vector<Double_t> EvaluateVector(std::vector<Double_t> xVec){
+    std::vector<Double_t> Yvec;
+
+    for(Double_t x:xVec)
+      Yvec.push_back(Evaluate(x));
+
+    return Yvec;
+
+  }
+};
+
+Double_t modelFunc(Double_t *x, Double_t *p){
+  Double_t xstart(14);
+  Double_t xx= *x -xstart;
+  if(xx<0)
+    return 0;
+
+  TF1 *fmodel= new TF1("fmodel",
+                       "[0]*TMath::Exp(-x*[1])+[2]*TMath::Exp(-x*[3])-[4]*TMath::Exp(-x*[5])",-2000,2000);
+
+  fmodel->SetParameters(p);
+
+  return fmodel->Eval(xx);
+
+
+}
+
+
+void SpheModel(){
+
+
+  TF1 *fmodel= new TF1("fmodel", modelFunc, 0, 2000, 6);
+  fmodel->SetNpx(1000);
+  fmodel->SetParameters(1.0, 0.2, 0.5, 0.02, 0.4, 0.1);
+  //fmodel->Draw();
+
+  TF1 *fgaus=new TF1("fgaus", "TMath::Gaus(x, 0,[0])", -500,500);
+  fgaus->SetNpx(1000);
+  fgaus->SetParameter(0,50);
+  //fgaus->Draw();
+
+  TF1Convolution *f_conv=new TF1Convolution(fmodel, fgaus);
+
+  TF1 *f1 = new TF1("f1", f_conv,
+                    f_conv->GetXmin(), f_conv->GetXmax(),
+                    f_conv->GetNpar());
+  f1->SetNpx(2000);
+  f1->SetParameters(1.0, 0.2, 0.5, 0.02, 0.4, 0.1, 5);
+  f1->Draw();
+
+  //f1->Draw();
+
+}
