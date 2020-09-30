@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "/home/greg/myARPC/Codes/utilities.h"
+#include "/home/greg/myARPC/Codes/LXe/LXeAnalysis.h"
+
+
+void deconvTest2(Int_t ch=8){
+
+  setLXe();
+  LXeutils::iter=10000;
+  LXeutils::reps=5;
+  LXeutils::boost=1.7;
+
+  std::string treeName="tCh"+std::to_string(ch);
+  std::string foutName="deconvTest_"+treeName+"PreN2.root";
+
+  TFile *fout = new TFile(foutName.c_str(), "RECREATE");
+
+  LXeutils::iter=10000;
+  for(int rep=1; rep<5; rep++){
+    LXeutils::reps=rep;
+    for(int b=0; b<21; b++){
+
+      std::vector<Double_t> I,sig=GetBranch("PreN2_avg.root", treeName, "peak");
+      std::vector<Double_t> sphe=GetBranch("FitSphes.root", treeName, "peak");
+
+      for(int i=0; i<sig.size(); i++){
+        I.push_back(i);
+        if(sphe[i]<0)
+           sphe[i]=0;
+      }
+
+      LXeutils::boost= 1+0.05*b;
+
+      deconv(sig, sphe, 1000);
+
+      std::string graphName="deconv_reps_"+std::to_string(rep)+
+        "_boost_"+std::to_string(1+0.1*b);
+      std::cout << graphName <<"\n";
+      TCanvas *myc = new TCanvas(graphName.c_str(), graphName.c_str(),
+                                 800,600);
+      TGraph *g1 = new TGraph(I.size(), &I[0], &sig[0]);
+      g1->Fit("expo", "", "", 450, 550);
+      g1->Draw("AL");
+      fout->WriteObject(myc, graphName.c_str(), "TObject::kOverwrite");
+    }
+  }
+
+  // for(int i=0; i<sig.size(); i++)
+  //   I.push_back(i);
+
+
+}

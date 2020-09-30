@@ -1,0 +1,8 @@
+XeMonitoring10ppm_Internal1_Ch0-2019-12-05_11-14-08_copy.root
+XeMonitoring10ppm_Internal1_Ch10-2019-12-05_11-14-08_copy.root
+XeMonitoring10ppm_Internal1_Ch11-2019-12-05_11-14-08_copy.root
+XeMonitoring10ppm_Internal1_Ch1-2019-12-05_11-14-08_copy.root
+XeMonitoring10ppm_Internal1_Ch2-2019-12-05_11-14-08_copy.root
+XeMonitoring10ppm_Internal1_Ch3-2019-12-05_11-14-08_copy.root
+XeMonitoring10ppm_Internal1_Ch8-2019-12-05_11-14-08_copy.root
+XeMonitoring10ppm_Internal1_Ch9-2019-12-05_11-14-08_copy.root

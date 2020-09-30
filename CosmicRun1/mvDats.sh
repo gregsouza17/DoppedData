@@ -14,7 +14,7 @@ for d in */; do
 
     # rm *.C
 #   mkdir Dats
-    mv *lightYield.root $mainDir/
+    cp *samples.root $mainDir/
 #   rm *.root
     cd $MainDir
 

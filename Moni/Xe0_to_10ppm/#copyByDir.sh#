@@ -1,0 +1,16 @@
+
+
+mainFile=/home/greg/DoppedData/Monitoring/Xe0_to_10ppm/copyToRoot.C
+mainDir=/home/greg/DoppedData/Monitoring/Xe0_to_10ppm
+
+for d in */; do
+    
+    cd $mainDir/$d
+   # rm *.root
+    cp $mainFile .
+    
+    root -q -b copyToRoot.C
+    
+done
+	 
+	 

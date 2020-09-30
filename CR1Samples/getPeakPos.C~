@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "/home/greg/myARPC/Codes/utilities.h"
+#include "/home/greg/myARPC/Codes/LXe/LXeAnalysis.h"
+
+//Mean Position: 506 +-5
+
+
+void getPeakPos(){
+  setLXe();
+
+  std::vector<std::string> inFiles=GetFiles(".root");
+
+  TH1I* hPeakPos = new TH1I("h1", "PeakPos", 2000, 0, 2000);
+
+  for(auto s:inFiles){
+    TFile *inF= new TFile(s.c_str(), "READ");
+    for(Int_t i:LXeutils::Channels){
+      std::string treeName="tCh"+std::to_string(i);
+      //std::cout << treeName <<"\t" << s <<"\n";
+
+      TTree *t1 = (TTree*) inF->Get(treeName.c_str());
+      Int_t nevents = t1->GetEntries()/TestParam::linhas_evento;
+
+      for(int ev=0; ev<nevents; ev++){
+        Signal sig(t1, ev);
+        hPeakPos->Fill(sig.GetHighestPeak());
+      }
+      t1->Delete();
+
+    }
+    inF->Close();
+  }
+  hPeakPos->Draw();
+
+}

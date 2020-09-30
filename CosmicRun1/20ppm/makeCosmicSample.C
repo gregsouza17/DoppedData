@@ -7,7 +7,7 @@ void makeCosmicSample(){
 
   std::vector<std::string> inFiles=GetFiles("copy.root");
 
-  TFile *fout = new TFile("20ppm.root", "RECREATE");
+  TFile *fout = new TFile("20ppm_samples.root", "RECREATE");
 
   for(std::string s:inFiles){
     MakeCosmicSample(s, GetCh(s), fout);

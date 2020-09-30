@@ -9,7 +9,7 @@ for d in */; do
    # rm *.root
     cp $mainFile .
     
-    root -q -b copyToRoot.C
+    root -q -b makeCosmicSample.C
     
 done
 	 

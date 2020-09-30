@@ -1,0 +1,8 @@
+XeMonitoring_Internal12_Ch0-2019-12-04_17-20-06_copy.root
+XeMonitoring_Internal12_Ch10-2019-12-04_17-20-06_copy.root
+XeMonitoring_Internal12_Ch11-2019-12-04_17-20-06_copy.root
+XeMonitoring_Internal12_Ch1-2019-12-04_17-20-06_copy.root
+XeMonitoring_Internal12_Ch2-2019-12-04_17-20-06_copy.root
+XeMonitoring_Internal12_Ch3-2019-12-04_17-20-06_copy.root
+XeMonitoring_Internal12_Ch8-2019-12-04_17-20-06_copy.root
+XeMonitoring_Internal12_Ch9-2019-12-04_17-20-06_copy.root

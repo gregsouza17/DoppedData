@@ -1,0 +1,8 @@
+02Dec2019_Vbias=47_CosmicIntTrig_Ch0-2019-12-02_12-52-16_copy.root
+02Dec2019_Vbias=47_CosmicIntTrig_Ch10-2019-12-02_12-52-16_copy.root
+02Dec2019_Vbias=47_CosmicIntTrig_Ch11-2019-12-02_12-52-16_copy.root
+02Dec2019_Vbias=47_CosmicIntTrig_Ch1-2019-12-02_12-52-16_copy.root
+02Dec2019_Vbias=47_CosmicIntTrig_Ch2-2019-12-02_12-52-16_copy.root
+02Dec2019_Vbias=47_CosmicIntTrig_Ch3-2019-12-02_12-52-16_copy.root
+02Dec2019_Vbias=47_CosmicIntTrig_Ch8-2019-12-02_12-52-16_copy.root
+02Dec2019_Vbias=47_CosmicIntTrig_Ch9-2019-12-02_12-52-16_copy.root

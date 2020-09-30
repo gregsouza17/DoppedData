@@ -1,0 +1,8 @@
+
+
+void tst(){
+
+  system("pwd >> readFolder.txt");
+  system("rm readFolder.txt");
+
+}
