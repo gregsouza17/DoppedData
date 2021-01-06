@@ -1,0 +1,8 @@
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch0-2019-12-20_17-34-24_copy.root
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch10-2019-12-20_17-34-24_copy.root
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch11-2019-12-20_17-34-24_copy.root
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch1-2019-12-20_17-34-24_copy.root
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch2-2019-12-20_17-34-24_copy.root
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch3-2019-12-20_17-34-24_copy.root
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch8-2019-12-20_17-34-24_copy.root
+Cosmic_Vertical_VBias47V_30ppmXe_NDoping_Ch9-2019-12-20_17-34-24_copy.root

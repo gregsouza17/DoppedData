@@ -1,0 +1,27 @@
+#include "/home/greg/myARPC/Codes/LXe/LXeAnalysis.h"
+#include "/home/greg/myARPC/Codes/utilities.h"
+
+#include <unistd.h>
+#define GetCurrentDir getcwd
+
+std::string GetCurrentWorkingDir( void ) {
+  char buff[FILENAME_MAX];
+  GetCurrentDir( buff, FILENAME_MAX );
+  std::string current_working_dir(buff);
+  return current_working_dir;
+}
+
+void makeCosmicSample(){
+
+  gROOT->SetBatch(true);
+
+  std::vector<std::string> inFiles=GetFiles("copy.root");
+  std::string currentDir=GetCurrentWorkingDir();
+
+  std::string sampleName = currentDir.substr(currentDir.find("CR2/")+4)+
+    "_sample.root";
+
+  TFile *fout = new TFile(sampleName.c_str(), "RECREATE");
+
+  gROOT->SetBatch(false);
+}

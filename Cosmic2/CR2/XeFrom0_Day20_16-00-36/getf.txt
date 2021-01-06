@@ -1,0 +1,7 @@
+Cosmic_Vertical_VBias47V_1from0ppm_xe_Ch10-2019-12-20_16-00-36_copy.root
+Cosmic_Vertical_VBias47V_1from0ppm_xe_Ch11-2019-12-20_16-00-36_copy.root
+Cosmic_Vertical_VBias47V_1from0ppm_xe_Ch1-2019-12-20_16-00-36_copy.root
+Cosmic_Vertical_VBias47V_1from0ppm_xe_Ch2-2019-12-20_16-00-36_copy.root
+Cosmic_Vertical_VBias47V_1from0ppm_xe_Ch3-2019-12-20_16-00-36_copy.root
+Cosmic_Vertical_VBias47V_1from0ppm_xe_Ch8-2019-12-20_16-00-36_copy.root
+Cosmic_Vertical_VBias47V_1from0ppm_xe_Ch9-2019-12-20_16-00-36_copy.root

@@ -1,0 +1,49 @@
+#include <string>
+
+
+void peakCenter(std::string inRun, double &pCenter, double &pVar){
+
+
+  if(inRun=="Bias47V_09-42-17_samples.root"){
+    pCenter=384; pVar=5;
+  }
+
+  else if(inRun=="Bias47V_21-19-19_samples.root"){
+    pCenter=383; pVar=4;
+  }
+  else if(inRun=="Bias47V_preDop_11-55-13_samples.root"){
+    pCenter=383; pVar=5;
+  }
+  else if(inRun=="10ppmCR2_samples.root"){
+        pCenter=432; pVar=6;
+    }
+  else if (inRun=="30ppmCR2_samples.root"){
+    pCenter=449; pVar=8;
+  }
+  else if(inRun=="AlphaFrom0_12-29-31_samples.root"){
+    pCenter=400; pVar=9;
+  }
+  else if(inRun=="PreXe30ppm_11-10-33_samples.root"){
+    pCenter=410; pVar=7;
+  }
+  else if(inRun=="XeFrom0_Day20_12-20-36_samples.root"){
+    pCenter=448; pVar=5;
+  }
+  else if(inRun=="XeFrom0_Day20_16-00-36_samples.root"){
+    pCenter=448; pVar=5;
+  }
+  else if(inRun=="XePreDopping_10-54-49_samples.root"){
+    pCenter=414; pVar=6;
+  }
+  else if(inRun=="XeVMuon_Day17_samples.root"){
+    pCenter=415; pVar=5;
+  }
+  else if(inRun=="XeVMuon_Day18_samples.root"){
+    pCenter=410; pVar=4;
+  }
+  else{
+    pCenter=430; pVar=50;
+  }
+
+
+}

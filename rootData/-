@@ -1,6 +1,0 @@
-tv__tree = (TTree *)0x7f6dc84734e0;
-tv__tree_list->Add(tv__tree);
-tv__tree->Draw("peak:time","","", 8896000, 0);
-tv__tree = (TTree *)0x7f8cc8626380;
-tv__tree_list->Add(tv__tree);
-tv__tree->Draw("peak:time","","", 2000, 0);
